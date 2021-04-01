@@ -1,6 +1,5 @@
-{% extends "templates/base.html.twig" %} 
+{% extends "base.html.twig" %} 
 {% block title %}My homepage{% endblock %}
-{% block pagename %}Please have a seat.{% endblock %}
 {% block body %}
  <header>
     <h1>Замятин Алексей</h1>
@@ -19,7 +18,7 @@
      <li>Аттестат с отличием</li>
      <li>Участие в региональных олимпиадах по информатике</li>
    </ul>
-   <img src="images/photo.jpg" alt= "Замятин Алексей"/> 
+   <img src="{{ asset('images/photo.jpg') }}", alt= "Замятин Алексей"> 
    <h2>Хобби</h2>
    <p>Моё основное хобби - настольная игра с миниатюрами warhammer 40.000.</p>
    <h3>Она совмещает</h3>
@@ -28,6 +27,6 @@
      <li>чтение художественной литературы по игровой вселенной</li>
      <li>самy настольную тактическую игру</li>
    </ul>
-   <img src='images/wargame.jpg' alt='warhammer40.000'/>
+   <img src="{{ asset('images/wargame.jpg') }}", alt='warhammer40.000'>
  </article>
 {% endblock %}
