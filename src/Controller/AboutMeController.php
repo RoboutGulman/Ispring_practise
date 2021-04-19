@@ -7,11 +7,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AboutMeController extends AbstractController
 {
-    /**
-     * @Route("/")
-     */
     public function homepage()
     {
-        return $this->render('/AboutMe.html.twig');
+        return $this->render('/about_me.html.twig');
     }
 }
