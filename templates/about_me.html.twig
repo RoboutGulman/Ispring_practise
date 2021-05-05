@@ -30,7 +30,7 @@
 
      <div>
        {% for theme in hobbies %}
-       <p> {{ theme.header }}</p>
+       <p> {{ theme.name }}</p>
             {% for image in theme.images %}
                 <img src="{{ image }}" alt="my__hobby">
             {% endfor%}
