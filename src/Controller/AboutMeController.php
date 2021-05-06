@@ -2,20 +2,16 @@
 
 namespace App\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Module\ImageProvider;
+use App\Modules\App\HobbieService;
 
 
 class AboutMeController extends AbstractController
 {
-    public function index()
+    public function index(): Response
     {
-        $hobbies = new ImageProvider();
-        $themes = ['warhammer40k', 'lord_of_the_rings', 'JudgeDredd'];
-        foreach ($themes as $theme)
-        {
-            $hobbies->addTopic($theme);  
-        }
+        $hobbies = new HobbieService();
 
         return $this->render('/about_me.html.twig',[
             'hobbies' => $hobbies->getData()
