@@ -11,10 +11,10 @@ class AboutMeController extends AbstractController
 {
     public function index(): Response
     {
-        $hobbies = new HobbieService();
+        $hobbieService = new HobbieService();
 
         return $this->render('/about_me.html.twig',[
-            'hobbies' => $hobbies->getData()
+            'hobbies' => $hobbieService->getData()
         ]);
     }
 }

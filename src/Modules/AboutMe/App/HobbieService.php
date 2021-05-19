@@ -8,7 +8,7 @@ use App\Modules\AboutMe\Infrastructure\ImageProvider;
 
 class HobbieService 
 {
-    private array $topic;
+    private array $hobbies;
 
     public function __construct()
     {
@@ -20,16 +20,14 @@ class HobbieService
 
     public function getData()
     {
-        return $this->topic;
+        return $this->hobbies;
     }
 
     public function addHobbie(string $title): void
     {
         $imageProvider = new ImageProvider();
         $photos = $imageProvider->getImageUrls($title); 
-        $this->topic[] = [
-            'name' => $title,
-            'images' => $photos,
-        ];            
+        $hobbie = new Hobbie($title, $photos);     
+        $this->hobbies[] = $hobbie;                   
     }
 }

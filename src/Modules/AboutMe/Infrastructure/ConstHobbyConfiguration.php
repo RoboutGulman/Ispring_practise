@@ -2,7 +2,9 @@
 
 namespace App\Modules\AboutMe\Infrastructure;
 
-class ConstHobbyConfiguration
+use App\Modules\App\HobbieConfigurationInterface;
+
+class ConstHobbyConfiguration implements HobbieConfigurationInterface
 {
     public static function getHobbiesMap(): array 
     {
