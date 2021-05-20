@@ -1,21 +1,23 @@
 <?php  
 
-namespace App\Modules\App;
+namespace App\Modules\AboutMe\App;
 
-use App\Modules\AboutMe\Infrastructure\ConstHobbyConfiguration;
+use App\Modules\AboutMe\App\HobbieConfigurationInterface;
 use App\Modules\AboutMe\Model\Hobbie;
-use App\Modules\AboutMe\Infrastructure\ImageProvider;
+use App\Modules\AboutMe\App\ImageProviderInterface;
 
 class HobbieService 
 {
-    private array $hobbies;
+    private ImageProviderInterface $imageProvider;
+    private HobbieConfigurationInterface $configuration;
 
-    public function __construct()
+    public function __construct(
+        ImageProviderInterface $imageProvider,
+        HobbieConfigurationInterface $configuration 
+    )
     {
-        foreach (ConstHobbyConfiguration::getHobbiesMap() as $value) 
-        {
-            $this->addHobbie($value);
-        }
+        $this->imageProvider = $imageProvider;
+        $this->configuration = $configuration;
     }
 
     public function getData()
@@ -23,11 +25,15 @@ class HobbieService
         return $this->hobbies;
     }
 
-    public function addHobbie(string $title): void
+    public function addHobbie(): array
     {
-        $imageProvider = new ImageProvider();
-        $photos = $imageProvider->getImageUrls($title); 
-        $hobbie = new Hobbie($title, $photos);     
-        $this->hobbies[] = $hobbie;                   
+        $hobbyMap = $this->configuration->getHobbiesMap();
+        foreach ($hobbyMap as $value) 
+        {
+            $photos = $this->imageProvider->getImageUrls($value); 
+            $hobbie = new Hobbie($value, $photos);     
+            $hobbies[] = $hobbie;  
+        }
+        return $hobbies;                 
     }
 }

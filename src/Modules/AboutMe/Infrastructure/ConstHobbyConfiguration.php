@@ -2,7 +2,7 @@
 
 namespace App\Modules\AboutMe\Infrastructure;
 
-use App\Modules\App\HobbieConfigurationInterface;
+use App\Modules\AboutMe\App\HobbieConfigurationInterface;
 
 class ConstHobbyConfiguration implements HobbieConfigurationInterface
 {

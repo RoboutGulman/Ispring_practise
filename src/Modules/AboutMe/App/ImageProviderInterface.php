@@ -1,5 +1,5 @@
 <?php
-namespace App\Modules\App;
+namespace App\Modules\AboutMe\App;
 
 interface ImageProviderInterface
 {
