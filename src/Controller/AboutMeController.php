@@ -5,15 +5,14 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Modules\AboutMe\App\HobbieService;
+use App\View\AboutMe\AboutMePageView;
 
 class AboutMeController extends AbstractController
 {
-    public function index(HobbieService $hs): Response
+    public function AboutMePage(HobbieService $hs): Response
     {
-        $hobbieService =  $hs->addHobbie();
+        $pageView =  new AboutMePageView($hs->addHobbie());
 
-        return $this->render('/about_me.html.twig',[
-            'hobbies' => $hobbieService
-        ]);
+        return $this->render('/about_me.html.twig', $pageView->buildParams());
     }
 }
