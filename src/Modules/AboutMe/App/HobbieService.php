@@ -20,7 +20,7 @@ class HobbieService
         $this->configuration = $configuration;
     }
 
-    public function addHobbie(): array
+    public function updateHobbie(): array
     {
         $hobbyMap = $this->configuration->getHobbiesMap();
         foreach ($hobbyMap as $value) 
