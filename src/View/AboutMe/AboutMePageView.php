@@ -12,6 +12,11 @@ class AboutMePageView
 
     public function buildParams(): array
     {
-        return [ 'hobbies' => $this->hobbies ];
+        $hobbiesParams = [];
+        foreach ($this->hobbies as $hobby)
+        {
+            $hobbiesParams[$hobby->getTitle()] = $hobby->getImages();
+        }
+        return [ 'hobbies' => $hobbiesParams ];
     }
 }

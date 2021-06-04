@@ -29,14 +29,24 @@
    </ul>
 
      <div>
-       {% for theme in hobbies %}
-       <p> {{ theme.title }}</p>
-            {% for image in theme.images %}
-                <img src="{{ image }}" alt="my__hobby">
-            {% endfor%}
-            <div class="clear"></div>
-    {% endfor%}
+    {% for theme, images in hobbies %}
+    <p class="title">{{ theme}} </p>
+    <div class="ant-carousel" id="{{ theme }}">
+      <div class="ant-carousel-hider">
+        <ul class="ant-carousel-list">
+        {% for image in images %}   
+          <li class="ant-carousel-element">
+            <img class="ant-img" src="{{ image }}" alt="0">
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+      <div class="ant-carousel-arrow-left"></div>
+      <div class="ant-carousel-arrow-right"></div>
+      <div class="ant-carousel-dots"></div>
     </div>
-    
+    {% endfor %}
+
+    </div>
  </article>
 {% endblock %}
