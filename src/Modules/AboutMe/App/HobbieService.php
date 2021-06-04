@@ -20,11 +20,6 @@ class HobbieService
         $this->configuration = $configuration;
     }
 
-    public function getData()
-    {
-        return $this->hobbies;
-    }
-
     public function addHobbie(): array
     {
         $hobbyMap = $this->configuration->getHobbiesMap();
